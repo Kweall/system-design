@@ -1,0 +1,6 @@
+[submodule "pillow-api"]
+	path = pillow-api
+	url = https://github.com/Kweall/pillow-api.git
+[submodule "2/userver-projects/pillow-api"]
+	path = 2/userver-projects/pillow-api
+	url = https://github.com/Kweall/pillow-api.git
