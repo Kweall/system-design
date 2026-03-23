@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  userver-dev:
+    build: .
+    container_name: userver-dev
+    ports:
+      - "8080:8080"  # HTTP сервер
+      - "8081:8081"  # Для дополнительных сервисов
+    volumes:
+      # Монтируем директорию с проектами
+      - ./projects:/workspace
+      # Монтируем историю команд bash
+      - userver-bash-history:/root/.bash_history
+      # Кэш сборки
+      - userver-build-cache:/root/.cache
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    # Для автоматического перезапуска
+    restart: unless-stopped
+
+volumes:
+  userver-bash-history:
+  userver-build-cache:
