@@ -8,3 +8,5 @@
 |------------|------|----------|
 | [01_structurizr](1/) | Документирование | Structurizr DSL, C4-модель, ADR |
 | [02_rest](2/) | REST API | Разработка REST API сервиса |
+| [03_sql](3/) | SQL | PostgreSQL |
+| [04_mongo](4/) | NoSQL | MongoDB |
