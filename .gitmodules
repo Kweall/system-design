@@ -4,3 +4,6 @@
 [submodule "2/userver-projects/pillow-api"]
 	path = 2/userver-projects/pillow-api
 	url = https://github.com/Kweall/pillow-api.git
+[submodule "3"]
+	path = 3
+	url = https://github.com/Kweall/pillow-postgres.git

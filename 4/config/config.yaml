@@ -1,0 +1,108 @@
+components_manager:
+  coro_pool:
+    initial_size: 1000
+    max_size: 5000
+  task_processors:
+    main-task-processor:
+      worker_threads: 4
+    fs-task-processor:
+      worker_threads: 1
+  default_task_processor: main-task-processor
+  
+  components:
+    dns-client:
+      fs-task-processor: fs-task-processor
+    
+    testsuite-support: {}
+    
+    server:
+      listener:
+        port: 8080
+        task_processor: main-task-processor
+    
+    logging:
+      fs-task-processor: fs-task-processor
+      loggers:
+        default:
+          file_path: '@stderr'
+          format: tskv
+          level: debug
+    
+    postgres-db:
+      dbconnection: "postgresql://postgres:postgres@localhost:5432/pillow_db"
+      blocking_task_processor: fs-task-processor
+      dns_resolver: async
+      sync-start: true
+    
+    mongo-db:
+      dbconnection: "mongodb://admin:admin123@localhost:27017/pillow_db?authSource=admin"
+
+    handler-ping:
+      path: /ping
+      method: GET
+      task_processor: main-task-processor
+    
+    auth-login-handler:
+      path: /api/auth/login
+      method: POST
+      task_processor: main-task-processor
+    
+    auth-register-handler:
+      path: /api/auth/register
+      method: POST
+      task_processor: main-task-processor
+    
+    properties-get-list-handler:
+      path: /api/properties
+      method: GET
+      task_processor: main-task-processor
+    
+    properties-get-handler:
+      path: /api/properties/{id}
+      method: GET
+      task_processor: main-task-processor
+    
+    properties-post-handler:
+      path: /api/properties
+      method: POST
+      task_processor: main-task-processor
+    
+    properties-put-handler:
+      path: /api/properties/{id}
+      method: PUT
+      task_processor: main-task-processor
+    
+    properties-delete-handler:
+      path: /api/properties/{id}
+      method: DELETE
+      task_processor: main-task-processor
+    
+    viewings-get-handler:
+      path: /api/viewings
+      method: GET
+      task_processor: main-task-processor
+    
+    viewings-post-handler:
+      path: /api/viewings
+      method: POST
+      task_processor: main-task-processor
+    
+    viewings-put-handler:
+      path: /api/viewings/{id}
+      method: PUT
+      task_processor: main-task-processor
+    
+    viewings-delete-handler:
+      path: /api/viewings/{id}
+      method: DELETE
+      task_processor: main-task-processor
+    
+    users-me-handler:
+      path: /api/users/me
+      method: GET
+      task_processor: main-task-processor
+      
+    handler-mongo-properties-get:
+      path: /api/mongo/properties/{id}
+      method: GET
+      task_processor: main-task-processor
