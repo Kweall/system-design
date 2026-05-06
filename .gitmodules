@@ -7,3 +7,6 @@
 [submodule "3"]
 	path = 3
 	url = https://github.com/Kweall/pillow-postgres.git
+[submodule "5/pillow-redis"]
+	path = 5/pillow-redis
+	url = https://github.com/Kweall/pillow-redis.git

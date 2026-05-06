@@ -1,1 +1,56 @@
+<<<<<<< HEAD
 workspace_example.dsl
+=======
+# Build directories
+build/
+cmake-build-*/
+out/
+bin/
+
+# Compiled files
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.dylib
+
+# Userver specific
+*_gen.cpp
+*_gen.hpp
+*.tskv
+*.log
+core.*
+*.core
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+venv/
+venv-*/
+__pycache__/
+*.pyc
+
+# Docker
+.dockerignore
+
+# Local configs
+config.local.yaml
+*.local.yaml
+
+# Executables
+hello_world
+*_test
+*.bench
+>>>>>>> 00f80b6a8be36ba1ffea8b9c9dbf60334c27323c
